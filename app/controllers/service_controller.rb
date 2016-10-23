@@ -53,7 +53,7 @@ class ServiceController < ApplicationController
       service.being_served = true
       service.save
     end
-    render :json => {:service => Service.all}
+    render :json => {:service => service}
   end
 
 # For anyone to mark as service as being served 

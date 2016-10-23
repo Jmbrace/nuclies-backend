@@ -72,6 +72,7 @@ class ServiceController < ApplicationController
   def getServicesUnserved
     services_to_return = []
     volunteer = User.find(params[:volunteer_id])
+    test = "blah"
     if !volunteer.nil?
       Service.where(being_served: false).find_each do |service|
         if(volunteer.services.include?(service.name) || service.name == "custom")
@@ -82,7 +83,7 @@ class ServiceController < ApplicationController
         end
       end
     end
-    render :json => {:services => serv}
+    render :json => {:services => test}
   end
 
 

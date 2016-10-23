@@ -77,7 +77,6 @@ class ServiceController < ApplicationController
     services_to_return = []
     if !volunteer.nil?
       for service in services
-        binding.pry
         if(volunteer.services.includes?(service.name) || service.name == "custom")
           services_to_return.push(service.as_json)
         end

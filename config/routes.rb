@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  mount_devise_token_auth_for 'User', at: 'auth'
+
+  controller :in_need do
+    post '/web/sign_in' => :inNeedWeb
+    post '/mobile/sign_in' => :inNeedMobile
+  end
+
+  controller :service do
+    post '/inneed/services' => :newServices
+    delete 'inneed/services' => :deleteServices
+    post '/markservice' => :markServiceBeingServed
+    delete '/markservice' => :unmarkServiceBeingServed
+    post '/getservices' => :getServicesUnserved
+  end
+
+  controller :user do
+    post 'setservice' => :setServices
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

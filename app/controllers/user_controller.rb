@@ -3,7 +3,6 @@ class UserController < ApplicationController
 
   def setServices
     user = User.find(params[:user][:id])
-    binding.pry
     user.services = []
     for serv in params[:user][:services]
        user.services.push(serv)

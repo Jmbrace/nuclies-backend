@@ -255,5 +255,30 @@ request body
 }
 ```
 
-response
+response (a list of services, followed by the list of people who needed the services)
+
+{
+  "services": [
+    {
+      "id": 2,
+      "name": "legal",
+      "volunteer_id": -1,
+      "being_served": false,
+      "created_at": "2016-10-23T02:36:08.476Z",
+      "updated_at": "2016-10-23T03:24:54.431Z",
+      "description": "I got into a blah blah blah and need legal advice",
+      "in_need_id": 1
+    }
+  ],
+  "persons": [
+    {
+      "id": 1,
+      "first_name": "audrey",
+      "last_name": "abruzzo",
+      "created_at": "2016-10-23T02:18:18.410Z",
+      "updated_at": "2016-10-23T02:18:18.410Z",
+      "last4_ssn": 7915
+    }
+  ]
+}
 

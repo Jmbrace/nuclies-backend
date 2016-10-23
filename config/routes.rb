@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   end
 
   controller :user do
-    post 'setservice' => :setServices
+    post '/setservice' => :setServices
+    get '/ratio/users' => :count
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

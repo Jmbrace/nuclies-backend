@@ -11,6 +11,12 @@ class UserController < ApplicationController
     render :json => {:user => user}
   end
 
+  def count
+    usersnum = User.count
+    inneednum = InNeed.count
+    render :json => {:vols => usersnum, :inneed => inneednum}
+  end
+
 private
   def user_params
     params.require(:user).permit(:id, :services => [])

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     post '/markservice' => :markServiceBeingServed
     delete '/markservice' => :unmarkServiceBeingServed
     post '/getservices' => :getServicesUnserved
+    get 'ratio/services' => :count
   end
 
   controller :user do

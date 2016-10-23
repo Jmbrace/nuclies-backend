@@ -86,6 +86,19 @@ class ServiceController < ApplicationController
   end
 
 
+  def count
+    numServed = 0
+    numNotServed = 0
+    Service.find_each do |service|
+      if service.being_served
+        numServed = numServed + 1
+      else
+        numNotServed = numNotServed + 1
+      end
+    end
+    render :json => {:numServed => numServed, :numNotServed => numNotServed}
+  end
+
 private
   def service_params
     params.require(:services).permit(:in_need_id, :name, :volunteer_id, :names => [], :descriptions => [])

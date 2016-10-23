@@ -17,6 +17,8 @@ class UserController < ApplicationController
     render :json => {:vols => usersnum, :inneed => inneednum}
   end
 
+
+
 private
   def user_params
     params.require(:user).permit(:id, :services => [])

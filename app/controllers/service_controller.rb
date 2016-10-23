@@ -71,7 +71,7 @@ class ServiceController < ApplicationController
 # For a given volounteer, grab all services they can help.
   def getServicesUnserved
     services_to_return = []
-
+    render :json => {:services => User.all}
     volunteer = User.find(params[:volunteer_id])
     render :json => {:services => volunteer}
     if !volunteer.nil?

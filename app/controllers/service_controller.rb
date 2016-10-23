@@ -71,17 +71,18 @@ class ServiceController < ApplicationController
 # For a given volounteer, grab all services they can help.
   def getServicesUnserved
     services_to_return = []
+    people_to_return = []
     volunteer = User.find(params[:volunteer_id])
     test = "blah"
     if !volunteer.nil?
       Service.where(being_served: false).find_each do |service|
         if(volunteer.services.include?(service.name) || service.name == "custom")
-          service.person = 1
           services_to_return.push(service.as_json)
+          people_to_return.push(InNeed.find(service.in_need_id).as_json)
         end
       end
     end
-    render :json => {:services => services_to_return}
+    render :json => {:services => services_to_return, :persons => people_to_return}
   end
 
 

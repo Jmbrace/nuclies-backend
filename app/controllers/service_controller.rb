@@ -77,11 +77,12 @@ class ServiceController < ApplicationController
         if(volunteer.services.include?(service.name) || service.name == "custom")
           serv = service.as_json
           # serv[:in_need] = InNeed.find(serv[:in_need_id]).as_json
+          test = serv[:in_need]
           services_to_return.push(serv)
         end
       end
     end
-    render :json => {:services => services_to_return}
+    render :json => {:services => serv}
   end
 
 

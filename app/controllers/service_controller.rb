@@ -75,7 +75,9 @@ class ServiceController < ApplicationController
     if !volunteer.nil?
       Service.where(being_served: false).find_each do |service|
         if(volunteer.services.include?(service.name) || service.name == "custom")
-          services_to_return.push(service.as_json)
+          serv = service.as_json
+          serv[:in_need] = InNeed.find(serv[:in_need_id]).as_json
+          services_to_return.push(serv)
         end
       end
     end

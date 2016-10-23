@@ -1,7 +1,7 @@
 ### Authentication rouets
 
 ## Create a new volunteer
-# POST to /auth
+# POST to https://nuclius-backend.herokuapp.com/auth
 NOTE password must be at least 8 characters!
 request body
 ```{
@@ -29,7 +29,7 @@ response
 }```
 
 ## Set a volunteers services
-# POST to /setservice
+# POST to https://nuclius-backend.herokuapp.com/setservice
 request body
 ```{
 	"email": "theemail@gmail.com",
@@ -57,7 +57,7 @@ response
 
 
 ## Sign in as a volunteer
-# POST to /auth/sign_in
+# POST to https://nuclius-backend.herokuapp.com/auth/sign_in
 request body
 ```{
 	"email": "theemail@gmail.com",
@@ -82,7 +82,7 @@ response
 ```
 
 ## Sign in as a person in need, on mobile
-# POST to /mobile/sign_in
+# POST to https://nuclius-backend.herokuapp.com/mobile/sign_in
 request body
 ```{
 	"first_name": "bob",
@@ -105,7 +105,7 @@ If they do have an account
 }```
 
 ## Add a service that a person in need, needs
-# POST to /inneed/services
+# POST to https://nuclius-backend.herokuapp.com/inneed/services
 request body
 ```{"services":{
 	    "names": ["housing", "legal", "utilities"],
@@ -152,8 +152,8 @@ response
 }
 ```
 
-## Add a service that a person in need, needs
-# DELETE to /inneed/services
+## Delete a service that a person in need, needs
+# DELETE to https://nuclius-backend.herokuapp.com/inneed/services
 request body
 ```{	"services":{
 	    "names": ["legal", "utilities"],
@@ -182,7 +182,7 @@ response (the remaining services will be returned)
 
 
 ## Mark a Service as being served by a volunteer
-# POST to /markservice
+# POST to https://nuclius-backend.herokuapp.com/markservice
 request body
 ```{
 	 "name": "legal",
@@ -214,7 +214,7 @@ if the service was not found
 ```
 
 ## UnMark a Service as being served by a volunteer
-# Delete to /markservice
+# DELETE to https://nuclius-backend.herokuapp.com/markservice
 request body
 ```{
 	 "name": "legal",
@@ -244,3 +244,16 @@ if the service was not found
 ```
 {"service": null}
 ```
+
+## Get all unmarked services that a given volunteer can match
+# POST to https://nuclius-backend.herokuapp.com/getservices
+request body
+
+```
+{
+	 "volunteer_id": 1
+}
+```
+
+response
+
